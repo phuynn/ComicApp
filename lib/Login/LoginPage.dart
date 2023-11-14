@@ -2,10 +2,12 @@ import 'package:apptest/Home/HomePage.dart';
 import 'package:apptest/Login/RegisterPage.dart';
 import 'package:flutter/material.dart';
 
+import '../Home/NavScreen.dart';
 import '../constant/color.dart';
 
 class LoginPage extends StatefulWidget {
   const LoginPage({super.key});
+
 
   @override
   State<LoginPage> createState() => _LoginPageState();
@@ -13,6 +15,14 @@ class LoginPage extends StatefulWidget {
 
 class _LoginPageState extends State<LoginPage> {
   bool checked = true;
+  final TextEditingController _emailController = TextEditingController();
+  final TextEditingController _passwordController = TextEditingController();
+  var _userInvalid = false;
+  var _passInvalid = false;
+
+
+
+
   @override
   Widget build(BuildContext context) {
     return SafeArea(
@@ -37,9 +47,10 @@ class _LoginPageState extends State<LoginPage> {
 
                  Container(
                    padding: const EdgeInsets.fromLTRB(20.0, 0, 20.0, 0),
-                   child: const TextField(
+                   child: TextField(
+                     controller: _emailController,
                      keyboardType: TextInputType.emailAddress,
-                     decoration: InputDecoration(
+                     decoration: const InputDecoration(
                        hintText: "E.g flutter@gmail.com",
                        label: Text("Email"),
                      ),
@@ -50,9 +61,10 @@ class _LoginPageState extends State<LoginPage> {
 
             Container(
               padding: const EdgeInsets.fromLTRB(20.0, 0, 20.0, 0),
-              child: const TextField(
+              child: TextField(
+                controller: _passwordController,
                 obscureText: true,
-                decoration: InputDecoration(
+                decoration: const InputDecoration(
                   hintText: "********",
                   label: Text("Password"),
                 ),
@@ -87,7 +99,7 @@ class _LoginPageState extends State<LoginPage> {
               ),
               onPressed: (){
                 Navigator.push(context, MaterialPageRoute(
-                    builder: (context) => const HomePage())
+                    builder: (context) => NavBarScreen())
                 );
               },
               child: const Text("LOGIN",),

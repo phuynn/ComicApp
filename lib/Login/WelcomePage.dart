@@ -2,6 +2,8 @@ import 'package:apptest/Login/LoginPage.dart';
 import 'package:apptest/constant/color.dart';
 import 'package:flutter/material.dart';
 
+import '../Home/NavScreen.dart';
+
 class WelcomePage extends StatefulWidget {
   const WelcomePage({super.key});
 
