@@ -15,7 +15,11 @@ class _NavBarScreenState extends State<NavBarScreen> {
   int currentIndex = 0;
   _NavBarScreenState(this.currentIndex);
 
-  final List<Widget> screens = [HomePage(), Favorite(), History()];
+  final List<Widget> screens = [
+    HomePage(),
+    Favorite(),
+    History(),
+  ];
 
   @override
   Widget build(BuildContext context) {

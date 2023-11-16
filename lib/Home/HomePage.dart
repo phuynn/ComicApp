@@ -6,6 +6,7 @@ import 'package:flutter/material.dart';
 import '../constant/color.dart';
 import 'Profile.dart';
 import 'Readding.dart';
+import '../Chapter/chitiet.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({super.key});
@@ -195,7 +196,7 @@ class _HomePageState extends State<HomePage> {
                                       context,
                                       MaterialPageRoute(
                                         builder: (context) =>
-                                            Readding(newimg[index]),
+                                            DetailScreen(newimg[index]),
                                       ));
                                 },
                                 child: Container(
@@ -249,7 +250,7 @@ class _HomePageState extends State<HomePage> {
                                       context,
                                       MaterialPageRoute(
                                         builder: (context) =>
-                                            Readding(newimg[index]),
+                                            DetailScreen(newimg[index]),
                                       ));
                                 },
                                 child: Container(

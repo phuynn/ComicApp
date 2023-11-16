@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'fullchapter.dart';
 import 'account.dart';
 
-class DetailsScreen extends StatelessWidget {
+class ChapterScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     var size = MediaQuery.of(context).size;
@@ -18,7 +18,7 @@ class DetailsScreen extends StatelessWidget {
                   width: double.infinity,
                   decoration: BoxDecoration(
                       image: DecorationImage(
-                        image: AssetImage("assets/bg.png"),
+                        image: AssetImage("assets/bg copy.png"),
                         fit: BoxFit.fitWidth,
                       ),
                       borderRadius: BorderRadius.only(
@@ -29,7 +29,7 @@ class DetailsScreen extends StatelessWidget {
                       padding: EdgeInsets.symmetric(horizontal: 24),
                       child: Column(
                         children: <Widget>[
-                          SizedBox(height: size.height * .0),
+                          SizedBox(height: size.height * .1),
                           BookInfo(),
                         ],
                       )),
@@ -167,7 +167,7 @@ class BookInfo extends StatelessWidget {
                     child: Column(
                       children: <Widget>[
                         Text(
-                          "When the earth was flat andeveryone wanted to wining with an A hero. You believe in myself. You only one .I can do, you can do it.",
+                          "When the earth was flat andeveryone wanted to wining with an A hero. You believe in myself. You only one .I can do, you can do it. Monkey D. Luffy và đồng đội của mình trên hành trình tìm kiếm kho báu",
                           maxLines: 5,
                           style: TextStyle(
                             fontSize: 10,
@@ -175,6 +175,14 @@ class BookInfo extends StatelessWidget {
                         ),
                       ],
                     ),
+                  ),
+                  Column(
+                    children: <Widget>[
+                      IconButton(
+                        onPressed: () {},
+                        icon: Icon(Icons.favorite_border),
+                      ),
+                    ],
                   ),
                 ],
               ),

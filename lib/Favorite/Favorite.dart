@@ -11,7 +11,7 @@ class Favorite extends StatefulWidget {
 
 class _FavoRiteState extends State<Favorite> {
   List searchArr = [
-    {"name": "Biography", "img": "assets/b1.jpg"},
+    {"name": "The Eternal Supreme", "img": "assets/Bia.png"},
     {"name": "Business", "img": "assets/b2.jpg"},
     {"name": "Children", "img": "assets/b3.jpg"},
     {"name": "Cookery", "img": "assets/b4.jpg"},

@@ -1,6 +1,7 @@
+import 'package:apptest/Chapter/chitiet.dart';
 import 'package:flutter/material.dart';
 import '../common/color_extenstion.dart';
-import '../Chapter/chapter.dart';
+import '../Chapter/chitiet.dart';
 
 class SearchGridCell extends StatelessWidget {
   final Map sObj;
@@ -33,7 +34,7 @@ class SearchGridCell extends StatelessWidget {
               // For example, you can use the Navigator to push a new route
               Navigator.push(
                 context,
-                MaterialPageRoute(builder: (context) => DetailsScreen()),
+                MaterialPageRoute(builder: (context) => DetailScreen(String)),
               );
             },
             child: ClipRRect(

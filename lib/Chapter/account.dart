@@ -287,7 +287,7 @@ class _AccountPageState extends State<AccountPage> {
             Navigator.push(
               context,
               MaterialPageRoute(
-                builder: (context) => DetailsScreen(),
+                builder: (context) => ChapterScreen(),
               ),
             );
           }
