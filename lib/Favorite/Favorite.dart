@@ -18,6 +18,9 @@ class _FavoRiteState extends State<Favorite> {
     {"name": "Fiction", "img": "assets/b5.jpg"},
     {"name": "Cookery", "img": "assets/b6.jpg"},
     {"name": "Fiction", "img": "assets/b7.jpg"},
+    {"name": "Fiction", "img": "assets/b8.jpg"},
+    {"name": "Cookery", "img": "assets/b9.jpg"},
+    {"name": "Fiction", "img": "assets/b10.jpg"},
   ];
 
   @override

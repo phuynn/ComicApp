@@ -16,16 +16,16 @@ class HomePage extends StatefulWidget {
 
 class _HomePageState extends State<HomePage> {
   List<String> newimg = [
-    "assets/img1.png",
-    "assets/img2.png",
-    "assets/img3.png",
-    "assets/img4.png",
-    "assets/img5.png",
-    "assets/img6.png",
-    "assets/img7.png",
-    "assets/img8.png",
-    "assets/img9.png",
-    "assets/img10.png",
+    "assets/1.png",
+    "assets/2.png",
+    "assets/3.png",
+    "assets/4.png",
+    "assets/5.png",
+    "assets/6.png",
+    "assets/7.png",
+    "assets/8.png",
+    "assets/9.png",
+    "assets/10.png",
   ];
 
   @override
