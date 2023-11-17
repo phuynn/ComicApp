@@ -72,14 +72,14 @@ void _handleSend(BuildContext context) {
   if (email.isEmpty) {
     // Hiển thị thông báo nếu email trống
     ScaffoldMessenger.of(context).showSnackBar(
-      SnackBar(
+      const SnackBar(
         content: Text('Please enter your email !', textAlign: TextAlign.center),
       ),
     );
   } else {
     // Gửi thông báo nếu email đã được nhập và đúng định dạng
     ScaffoldMessenger.of(context).showSnackBar(
-      SnackBar(
+      const SnackBar(
         content: Text('Sent. Check your email!'),
       ),
     );

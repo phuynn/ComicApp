@@ -23,7 +23,7 @@ class _WelcomePageState extends State<WelcomePage> {
           mainAxisAlignment: MainAxisAlignment.center,
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
-            Text(
+            const Text(
               'A new world to explore',
               style: TextStyle(
                 fontSize: 35,
@@ -32,10 +32,10 @@ class _WelcomePageState extends State<WelcomePage> {
               ),
               textAlign: TextAlign.center,
             ),
-            SizedBox(height: 20),
-            Image.asset('lib/assets/Image26.png',
+            const SizedBox(height: 20),
+            Image.asset('assets/login.png',
                 height: 300, width: 300), // Đường dẫn hình ảnh của bạn
-            SizedBox(height: 20),
+            const SizedBox(height: 20),
             ElevatedButton(
               onPressed: () {
                 // Xử lý sự kiện khi nhấn nút "Get Started"
@@ -48,9 +48,9 @@ class _WelcomePageState extends State<WelcomePage> {
               style: ElevatedButton.styleFrom(
                 backgroundColor: Colors.green, // Màu nút xanh
               ),
-              child: Text('Get Started'),
+              child: const Text('Get Started'),
             ),
-            SizedBox(height: 35),
+            const SizedBox(height: 35),
             TextButton(
                 onPressed: () {
                   // Xử lý sự kiện khi nhấn nút "Sign Up"
@@ -59,7 +59,7 @@ class _WelcomePageState extends State<WelcomePage> {
                     MaterialPageRoute(builder: (context) => SignUpScreen()),
                   );
                 },
-                child: Text('Register if  do not have an account?',
+                child: const Text('Register if  do not have an account?',
                     style: TextStyle(color: Colors.black))),
           ],
         ),

@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import '../Home/HomePage.dart';
+
 import '../Home/NavScreen.dart';
 import 'ForgotPage.dart';
 
@@ -74,7 +74,7 @@ class _LoginPageState extends State<LoginPage> {
     return Container(
       margin: const EdgeInsets.only(bottom: 20.0),
       child: Image.asset(
-        'lib/assets/Image44.png', // Thay 'your_logo.png' bằng tên file hình ảnh của bạn
+        'assets/login.png', // Thay 'your_logo.png' bằng tên file hình ảnh của bạn
         width: 150.0,
         height: 150.0,
       ),

@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:apptest/Home/HomePage.dart';
 import '../Favorite/Favorite.dart';
-import '../History/History.dart';
 import '../constant/color.dart';
 
 class NavBarScreen extends StatefulWidget {
@@ -15,7 +14,7 @@ class _NavBarScreenState extends State<NavBarScreen> {
   int currentIndex = 0;
   _NavBarScreenState(this.currentIndex);
 
-  final List<Widget> screens = [HomePage(), Favotite(), History(),];
+  final List<Widget> screens = [HomePage(), Favorite(), Favorite(),];
 
   @override
   Widget build(BuildContext context) {
@@ -41,7 +40,7 @@ class _NavBarScreenState extends State<NavBarScreen> {
                 });
               },
               items: const [
-                BottomNavigationBarItem(icon: Icon(Icons.home), label: "Home"),
+                BottomNavigationBarItem(icon: Icon(Icons.home), label: "Home" ),
                 BottomNavigationBarItem(icon: Icon(Icons.favorite_border), label: "Favorite"),
                 BottomNavigationBarItem(icon: Icon(Icons.access_time), label: "History"),
 

@@ -2,9 +2,10 @@ import 'package:apptest/Login/LoginPage.dart';
 
 import 'package:flutter/material.dart';
 
+import '../Chapter/account.dart';
+import '../Chapter/chitiet.dart';
 import '../constant/color.dart';
-import 'Profile.dart';
-import 'Readding.dart';
+
 
 class HomePage extends StatefulWidget {
   const HomePage({super.key});
@@ -70,7 +71,7 @@ class _HomePageState extends State<HomePage> {
                                             leading: const Icon(Icons.person_outline_sharp, color: Colors.white),
                                             title: const Text("Profile", style: TextStyle(color: Colors.white),),
                                             onTap: (){
-                                              Navigator.push(context, MaterialPageRoute(builder: (context) => ProfilePage()) );
+                                              Navigator.push(context, MaterialPageRoute(builder: (context) => AccountPage()) );
                                             },
                                           ),
                                         ),
@@ -102,7 +103,11 @@ class _HomePageState extends State<HomePage> {
                                           text: "Welcome\n" , style: TextStyle(fontSize: 14.0,color: tText),
                                         ),
                                         TextSpan(
-                                          text: "ntphuyen2901@gmail.com" , style: TextStyle(fontSize: 19.0,fontWeight: FontWeight.bold,color: tText),
+                                          text: "ntphuyen2901@gmail.com" ,
+                                          style: TextStyle(
+                                              fontSize: 19.0,
+                                              fontWeight: FontWeight.bold,
+                                              color: tText),
                                         ),
                                       ]
                                   )
@@ -192,7 +197,7 @@ class _HomePageState extends State<HomePage> {
                                 return GestureDetector(
                                   onTap: () {
                                     Navigator.push(context, MaterialPageRoute(
-                                      builder: (context) => Readding(newimg[index]),
+                                      builder: (context) => DetailScreen(newimg[index]),
                                     ));
                                   },
                                   child:
@@ -248,7 +253,7 @@ class _HomePageState extends State<HomePage> {
                                 return GestureDetector(
                                     onTap: () {
                                       Navigator.push(context, MaterialPageRoute(
-                                        builder: (context) => Readding(newimg[index]),
+                                        builder: (context) => DetailScreen(newimg[index]),
                                       ));
                                     },
                                   child:

@@ -48,7 +48,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
         Navigator.pushReplacement(
           context,
           MaterialPageRoute(
-            builder: (context) => LoginPage(
+            builder: (context) => const LoginPage(
               successMessage: 'Registration successful, Please log in',
             ),
           ),
@@ -69,7 +69,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            Text(
+            const Text(
               'SIGN UP',
               style: TextStyle(
                   fontSize: 24,
@@ -144,7 +144,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
                           builder: (context) => const LoginPage()),
                     ); // Navigate to login page
                   },
-                  child: Text(
+                  child: const Text(
                     'Login',
                     style: TextStyle(
                         fontSize: 20,
