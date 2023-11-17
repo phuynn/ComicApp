@@ -15,7 +15,7 @@ class _NavBarScreenState extends State<NavBarScreen> {
   int currentIndex = 0;
   _NavBarScreenState(this.currentIndex);
 
-  final List<Widget> screens = [HomePage(), Favotite(), History()];
+  final List<Widget> screens = [HomePage(), Favotite(), History(),];
 
   @override
   Widget build(BuildContext context) {
@@ -44,6 +44,7 @@ class _NavBarScreenState extends State<NavBarScreen> {
                 BottomNavigationBarItem(icon: Icon(Icons.home), label: "Home"),
                 BottomNavigationBarItem(icon: Icon(Icons.favorite_border), label: "Favorite"),
                 BottomNavigationBarItem(icon: Icon(Icons.access_time), label: "History"),
+
               ],
             ),
           ),

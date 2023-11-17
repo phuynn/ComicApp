@@ -1,139 +1,175 @@
-import 'package:apptest/Login/LoginPage.dart';
-import 'package:apptest/constant/color.dart';
+
+
 import 'package:flutter/material.dart';
 
-class RegisterPage extends StatefulWidget {
-  const RegisterPage({super.key});
+import 'LoginPage.dart';
 
+class SignUpScreen extends StatefulWidget {
+  const SignUpScreen({super.key});
 
   @override
-  State<RegisterPage> createState() => _RegisterPageState();
+  State<SignUpScreen> createState() => _SignUpScreenState();
 }
 
-class _RegisterPageState extends State<RegisterPage> {
-  @override
-  Widget build(BuildContext context) {
-    return SafeArea(
-      child: Scaffold(
-        body: Container(
-          width: double.infinity,
-          decoration: const BoxDecoration(
-            image: DecorationImage(
-              image: AssetImage("assets/bg.png"),
-              fit: BoxFit.cover,
+class _SignUpScreenState extends State<SignUpScreen> {
+  final GlobalKey<FormState> _formKey = GlobalKey<FormState>();
+  final TextEditingController _nameController = TextEditingController();
+  final TextEditingController _emailController = TextEditingController();
+  final TextEditingController _ageController = TextEditingController();
+  final TextEditingController _phoneController = TextEditingController();
+  final TextEditingController _passwordController = TextEditingController();
+
+  bool isMale = false;
+  bool isFemale = false;
+  bool isOther = false;
+
+  void _showErrorSnackBar(String message) {
+    ScaffoldMessenger.of(context).showSnackBar(
+      SnackBar(
+        content: Text(message),
+        backgroundColor: Colors.red,
+      ),
+    );
+  }
+
+  void _handleSignUp() {
+    if (_formKey.currentState?.validate() ?? false) {
+      // Form is valid, proceed with signup logic
+      if (_nameController.text.isEmpty ||
+          _emailController.text.isEmpty ||
+          _ageController.text.isEmpty ||
+          _phoneController.text.isEmpty ||
+          _passwordController.text.isEmpty ||
+          (!isMale && !isFemale && !isOther)) {
+        // At least one field is empty, show a message
+        _showErrorSnackBar('Please fill in field');
+      } else {
+        // Navigate to the login page and show a success message
+        Navigator.pushReplacement(
+          context,
+          MaterialPageRoute(
+            builder: (context) => LoginPage(
+              successMessage: 'Registration successful, Please log in',
             ),
           ),
-          padding: const EdgeInsets.all(20.0),
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: <Widget>[
-              SizedBox(
-                width: 100.0,
-                height: 100.0,
-                child: Image.asset("assets/logo.png"),
-              ),
+        );
+      }
+    }
 
-          Container(
-            padding: const EdgeInsets.fromLTRB(20.0, 0, 20.0, 0),
-            child: const TextField(
+  }
 
-                decoration: InputDecoration(
-                  hintText: "E.g Phuong Uyen Nguyen",
-                  label: Text("Fullname"),
-                ),
-              ),
-          ),
-
-              const SizedBox(
-                height: 10.0,
-              ),
-
-          Container(
-            padding: const EdgeInsets.fromLTRB(20.0, 0, 20.0, 0),
-            child: const TextField(
-                keyboardType: TextInputType.emailAddress,
-                decoration: InputDecoration(
-                  hintText: "E.g flutter@gmail.com",
-                  label: Text("Email"),
-                ),
-              ),
-          ),
-
-              const SizedBox(
-                height: 10.0,
-              ),
-
-          Container(
-            padding: const EdgeInsets.fromLTRB(20.0, 0, 20.0, 0),
-            child: const TextField(
-                keyboardType: TextInputType.datetime,
-                decoration: InputDecoration(
-                  label: Text("Date of birth"),
-                  hintText: "E.g 02/09/2001",
-                ),
-              ),
-          ),
-
-              const SizedBox(
-                height: 10.0,
-              ),
-
-
-          Container(
-            padding: const EdgeInsets.fromLTRB(20.0, 0, 20.0, 0),
-            child: const TextField(
-                obscureText: true,
-                decoration: InputDecoration(
-                  hintText: "********",
-                  label: Text("Password"),
-                ),
-              ),
-          ),
-
-          Container(
-            padding: const EdgeInsets.fromLTRB(20.0, 0, 20.0, 0),
-            child: const TextField(
-                obscureText: true,
-                decoration: InputDecoration(
-                  hintText: "********",
-                  label: Text("Confirm Password"),
-                ),
-              ),
-          ),
-
-              ElevatedButton(
-                style: ButtonStyle(
-                  backgroundColor: MaterialStateProperty.all(tBtncolor),
-                  minimumSize: MaterialStateProperty.all(const Size(150.0,35.0)),
-                ),
-                onPressed: (){
-                  Navigator.push(context, MaterialPageRoute(
-                      builder: (context) => const LoginPage())
-                  );
-                },
-                child: const Text("REGISTER",),
-              ),
-
-              const SizedBox(
-                height: 0.0,
-              ),
-
-
-              Row(
-                children: [
-                  const Text("Already have account?"),
-                  TextButton(onPressed: (){
-                    Navigator.push(context, MaterialPageRoute(
-                        builder: (context) => const LoginPage())
-                    );
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      backgroundColor:
+      const Color(0xFFACA1EB), // Màu nền xanh tím nhạt cho App Bar
+      body: Container(
+        color: const Color(0xFFACA1EB),
+        padding: const EdgeInsets.all(16.0),
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            Text(
+              'SIGN UP',
+              style: TextStyle(
+                  fontSize: 24,
+                  fontWeight: FontWeight.bold,
+                  color: Colors.black),
+            ),
+            const SizedBox(height: 20),
+            buildInputField('Name', _nameController),
+            const SizedBox(height: 10),
+            buildInputField('Email', _emailController),
+            const SizedBox(height: 10),
+            buildInputField('Age', _ageController),
+            const SizedBox(height: 10),
+            buildInputField('Phone', _phoneController),
+            const SizedBox(height: 10),
+            buildInputField('Password', _passwordController),
+            const SizedBox(height: 5),
+            CheckboxListTile(
+              title: Text('Male'),
+              value: isMale,
+              onChanged: (value) {
+                setState(() {
+                  isMale = value ?? false;
+                  isFemale = false;
+                  isOther = false;
+                });
+              },
+            ),
+            CheckboxListTile(
+              title: Text('Female'),
+              value: isFemale,
+              onChanged: (value) {
+                setState(() {
+                  isMale = false;
+                  isFemale = value ?? false;
+                  isOther = false;
+                });
+              },
+            ),
+            CheckboxListTile(
+              title: Text('Other'),
+              value: isOther,
+              onChanged: (value) {
+                setState(() {
+                  isMale = false;
+                  isFemale = false;
+                  isOther = value ?? false;
+                });
+              },
+            ),
+            ElevatedButton(
+              onPressed: () {
+                // Handle sign-up logic here
+                _handleSignUp();
+                Navigator.pushReplacement(
+                  context,
+                  MaterialPageRoute(builder: (context) => const LoginPage()),
+                );
+              },
+              child: Text('Sign Up'),
+            ),
+            const SizedBox(height: 10),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                Text('Already have an account?'),
+                TextButton(
+                  onPressed: () {
+                    Navigator.pushReplacement(
+                      context,
+                      MaterialPageRoute(
+                          builder: (context) => const LoginPage()),
+                    ); // Navigate to login page
                   },
-                      child: const Text("Login")),
-                ],
-              ),
-            ],
-          ),
+                  child: Text(
+                    'Login',
+                    style: TextStyle(
+                        fontSize: 20,
+                        fontWeight: FontWeight.bold,
+                        color: Color(0xffbfdc9d)),
+                  ),
+                ),
+              ],
+            ),
+          ],
         ),
       ),
     );
   }
 }
+
+Widget buildInputField(String labelText, TextEditingController controller) {
+  return TextField(
+    controller: controller,
+    decoration: InputDecoration(
+      labelText: labelText,
+      filled: true,
+      fillColor: Colors.white,
+      border: OutlineInputBorder(borderRadius: BorderRadius.circular(10)),
+    ),
+  );
+}
+

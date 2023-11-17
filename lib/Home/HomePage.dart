@@ -1,4 +1,3 @@
-import 'package:apptest/Login/ForgotPage.dart';
 import 'package:apptest/Login/LoginPage.dart';
 
 import 'package:flutter/material.dart';
@@ -16,9 +15,9 @@ class HomePage extends StatefulWidget {
 
 class _HomePageState extends State<HomePage> {
   List<String>  newimg =[
+    "assets/3.png",
     "assets/1.png",
     "assets/2.png",
-    "assets/3.png",
     "assets/4.png",
     "assets/5.png",
     "assets/6.png",
@@ -27,6 +26,7 @@ class _HomePageState extends State<HomePage> {
     "assets/9.png",
     "assets/10.png",
   ];
+
 
   @override
   Widget build(BuildContext context) {
@@ -60,14 +60,15 @@ class _HomePageState extends State<HomePage> {
                               InkWell(
                                 onTap: (){
                                   showMenu(
+                                    color: tText,
                                       context: context,
                                       position: const RelativeRect.fromLTRB(0, 125.0, 0, 0),
                                       items: <PopupMenuEntry>[
                                         PopupMenuItem(
                                           child: ListTile(
                                             contentPadding: const EdgeInsets.all(3.0),
-                                            leading: const Icon(Icons.person_outline_sharp),
-                                            title: const Text("Profile"),
+                                            leading: const Icon(Icons.person_outline_sharp, color: Colors.white),
+                                            title: const Text("Profile", style: TextStyle(color: Colors.white),),
                                             onTap: (){
                                               Navigator.push(context, MaterialPageRoute(builder: (context) => ProfilePage()) );
                                             },
@@ -76,8 +77,8 @@ class _HomePageState extends State<HomePage> {
                                         PopupMenuItem(
                                           child: ListTile(
                                             contentPadding: EdgeInsets.all(3.0),
-                                            leading: Icon(Icons.logout_outlined),
-                                            title: Text("Logout"),
+                                            leading: Icon(Icons.logout_outlined, color: Colors.white),
+                                            title: Text("Logout", style: TextStyle(color: Colors.white)),
                                             onTap: (){
                                               Navigator.push(context, MaterialPageRoute(builder: (context) => LoginPage()) );
                                             },
@@ -172,7 +173,7 @@ class _HomePageState extends State<HomePage> {
                               SizedBox(
                                 width: 215.0,
                               ),
-                               Text("See more"),
+                                Text("See more"),
                             ],
                           ),
 
@@ -186,7 +187,7 @@ class _HomePageState extends State<HomePage> {
                           height: 200.0,
                           child: ListView.builder(
                             scrollDirection: Axis.horizontal,
-                              itemCount: newimg.length - 5,
+                              itemCount: newimg.length - 4,
                               itemBuilder: (context,index){
                                 return GestureDetector(
                                   onTap: () {
@@ -262,7 +263,6 @@ class _HomePageState extends State<HomePage> {
                                     ),
                                   ),
                                 );
-
                               }
                           ),
                         ),
